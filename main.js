@@ -1,8 +1,8 @@
 let basics = document.querySelector(".basics");
 let story = document.querySelector(".story");
 let header = document.querySelector(".header");
-let contactInfo = document.createElement("div");
-let storyInfo = document.createElement("div");
+let bio = document.createElement("div");
+let storyValue = document.createElement("div");
 
 function reqListener () {
   let data = JSON.parse(this.responseText);
@@ -11,16 +11,16 @@ function reqListener () {
     let email = (data.email);
     let company = (data.company);
     let picture = (data.avatar_url);
-    contactInfo.innerHTML = `
+    bio.innerHTML = `
     <li>Name: ${data.name}</li>
     <li>Website: ${data.url}</li>
     <li>Email: ${data.email}</li>
     <li>Company: ${data.company}</li>
     `;
-    storyInfo.innerHTML = `<p>${data.bio}</p><img src="${picture}">`;
+    storyValue.innerHTML = `<p>${data.bio}</p><img src="${picture}">`;
     header.append(name);
-    basics.appendChild(contactInfo);
-    story.appendChild(storyInfo);
+    basics.appendChild(bio);
+    story.appendChild(storyValue);
 }
 
 let req = new XMLHttpRequest();
