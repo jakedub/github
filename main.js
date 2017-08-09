@@ -1,65 +1,61 @@
 //Element grabs
 let header = document.querySelector("header");
-let basic = document.getElementsByClassName(".basic");
-let story = document.getElementsByTagName("ul");
-let block = document.getElementsByTagName("blockquote");
-let data = "";
-let name = "";
-let hub = "";
-let email = "";
-let company = "";
-let website = "";
-let image= "";
-let bio = "";
+let basic = document.getElementsByClassName("basic");
+let story = document.getElementsByTagName("blockquote");
+let list = document.getElementsByClassName("list_class");
 
 //Ajax Request
 let req = new XMLHttpRequest();
 req.open("GET", "https://api.github.com/users/jakedub");
 req.addEventListener("load", reqListener);
 req.send();
-console.log(req);
 
-function reqListener(userData){
-  let userData = JSON.parse(this.responseText);
-  console.log(userData);
-  name = userData.name;
-  userName = userData.login;
-  hub = userData.url;
-  email = userData.email;
-  company = userData.company;
-  website = userData.website;
-  image = userData.url;
-  bio = userData.bio;
-}
+let data="";
+let name="";
+let hub="";
+let email="";
+let company="";
+let website="";
+let image="";
+let bio="";
 
-  let li1=document.createElement("li");
-  let li2=document.createElement("li");
-  let li3=document.createElement("li");
-  let li4=document.createElement("li");
-  let li5=document.createElement("li");
-  let p1=document.createElement("p");
-  li1.textContent = name; //assigning text from the variable to the list item
-  li2.textContent = hub;
-  li3.textContent = email;
-  li4.textContent = company;
-  li5.textContent = website;
-  p1.textContent =bio;
-  basic.appendChild(li1); //appending the list item
-  basic.appendChild(li2);
-  basic.appendChild(li3);
-  basic.appendChild(li4);
-  basic.appendChild(li5);
-  block.appendChild(p1);
+function reqListener () {
+  data = JSON.parse(this.responseText);
+  name = `Name: ${data.name}`;//(data.name)
+  hub = `GitHub URL: ${data.url}`;
+  email = `Email: ${data.email}`;
+  company = `Company: ${data.company}`;
+  website = `Website: ${data.website}`;
+  image= `Image: ${data.avatar_url}`;
+  bio = `Bio: ${data.bio}`;
+  console.log(name);
+  console.log(hub);
+  console.log(email);
+  console.log(company);
+  console.log(website);
+  console.log(image);
+  console.log(bio);
+  }
 
-
-//
-// function biography(){
-//   story.appendChild()//assuming a callback from reqListener here
-// }
-//Something about a callback
-
-//Pull the API
-
-//Build out html
-
-//Assign the design work
+function something(){
+   let li1=document.createElement("li");
+   let li2=document.createElement("li");
+   let li3=document.createElement("li");
+   let li4=document.createElement("li");
+   let li5=document.createElement("li");
+   let p1=document.createElement("p");
+   li1.innerHTML = name;
+   li2.textContent = hub;
+   li3.textContent = email;
+   li4.textContent = company;
+   li5.textContent = website;
+   p1.textContent =bio;
+   list.appendChild(li1);
+   list.appendChild(li2);
+   list.appendChild(li3);
+   list.appendChild(li4);
+   list.appendChild(li5);
+   list.appendChild(p1);
+ }
+ something();
+ reqListener();
