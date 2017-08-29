@@ -17,7 +17,7 @@ function reqListener () {
     <li>Email: ${data.email}</li>
     <li>Company: ${data.company}</li>
     `;
-    storyValue.innerHTML = `<p>${data.bio}</p><img src="${picture}">`;
+    storyValue.innerHTML = `<div>${data.bio}</div><img src="${picture}">`;
     header.append(name);
     basics.appendChild(bio);
     story.appendChild(storyValue);

@@ -67,6 +67,16 @@ li{
   list-style-type: none;
 }
 
-image{
-  width: 100px;
+.story{
+  padding-left: 50px;
+}
+
+.story div{
+  float: left;
+}
+
+img{
+  width: 200px;
+  border-radius: 180px;
+  padding: 10px;
 }
